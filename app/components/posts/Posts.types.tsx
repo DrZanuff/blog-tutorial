@@ -9,7 +9,7 @@ export interface Todo {
 }
 
 export interface LoaderDataAllPosts {
-  posts: Post[] | null
+  posts: Post[]
 }
 
 export interface LoaderDataSinglePost {
@@ -21,3 +21,5 @@ export interface Todos {
 }
 
 export interface LoaderDataPostsProps extends LoaderDataAllPosts, Todos {}
+
+export type LoaderDataAdmin = Post[]

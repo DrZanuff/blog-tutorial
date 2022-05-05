@@ -17,6 +17,12 @@ function Posts({ posts, todos }: LoaderDataPostsProps) {
         ))}
       </S.PostList>
 
+      <div className="m-3 border-2 border-cyan-900 p-2">
+        <Link to="admin" className="text-red-600 underline">
+          Admin
+        </Link>
+      </div>
+
       <S.TodoList>
         {todos.map((todo) => (
           <S.TodoContainer key={todo.id}>

@@ -2,10 +2,10 @@ import { Posts } from '../../components/posts'
 // import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderDataPostsProps } from '../../components/posts/Posts.types'
-import { getAllPosts } from '../../models/post.server'
+import { getTodosPosts } from '../../models/post.server'
 
 export const loader = async () => {
-  return await getAllPosts()
+  return await getTodosPosts()
 }
 
 export default function PostsPage() {

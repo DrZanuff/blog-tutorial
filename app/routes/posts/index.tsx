@@ -1,23 +1,15 @@
-import { Posts } from './Posts'
+import { Posts } from '../../components/posts'
 // import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import type { LoaderData } from './Posts.types'
-import { posts } from './links'
+import type { LoaderDataPostsProps } from '../../components/posts/Posts.types'
+import { getAllPosts } from '../../models/post.server'
 
 export const loader = async () => {
-  //const data = await axios.get<Todo[]>('https://gorest.co.in/public/v2/todos')
-  const data = await fetch('https://gorest.co.in/public/v2/todos')
-
-  const response = await data.json()
-
-  return {
-    todos: response,
-    posts: posts,
-  } as LoaderData
+  return await getAllPosts()
 }
 
 export default function PostsPage() {
-  const { todos, posts } = useLoaderData<LoaderData>()
+  const { todos, posts } = useLoaderData<LoaderDataPostsProps>()
 
-  return <Posts todoList={todos} postList={posts} />
+  return <Posts todos={todos} posts={posts} />
 }

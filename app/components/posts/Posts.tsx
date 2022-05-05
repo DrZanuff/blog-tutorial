@@ -1,14 +1,14 @@
-import type { PostsProps } from './Posts.types'
+import type { LoaderDataPostsProps } from './Posts.types'
 import { Link } from '@remix-run/react'
 import { format } from 'date-fns'
 import * as S from './Posts.styles'
 
-function Posts({ todoList, postList }: PostsProps) {
+function Posts({ posts, todos }: LoaderDataPostsProps) {
   return (
     <S.PostsContainer>
       <h1>Posts</h1>
       <S.PostList>
-        {postList.map((post) => (
+        {posts?.map((post) => (
           <li key={post.slug}>
             <Link to={post.slug} className="text-blue-600 underline">
               {post.title}
@@ -18,7 +18,7 @@ function Posts({ todoList, postList }: PostsProps) {
       </S.PostList>
 
       <S.TodoList>
-        {todoList.map((todo) => (
+        {todos.map((todo) => (
           <S.TodoContainer key={todo.id}>
             <h1>{todo.title}</h1>
             <h2>{todo.status}</h2>
